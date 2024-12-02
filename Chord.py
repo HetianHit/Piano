@@ -9,7 +9,7 @@ my_list = [
 ]
 
 # 设置网页标题（小一点的字体）
-st.markdown("<h1 style='font-size: 20px;'>随机生成10个和弦</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='font-size: 24px;'>34个和弦中随机生成10个</h1>", unsafe_allow_html=True)
 
 # 用于保存上一次点击按钮的时间
 if 'last_click_time' not in st.session_state:
@@ -32,7 +32,7 @@ if st.button('和弦生成', key="generate_button"):
         random_items = random.sample(my_list, 10)  # 随机选择10个元素
 
         # 用HTML和CSS来显示两个横向行
-        row_html = '<div style="display: flex; justify-content: space-between; font-size: 30px;">'
+        row_html = '<div style="display: flex; justify-content: space-between; font-size: 28px;">'
 
         # 第一行显示前5个元素
         row_html += ''.join([f'<div style="margin-right: 20px;">{item}</div>' for item in random_items[:5]])
@@ -40,7 +40,7 @@ if st.button('和弦生成', key="generate_button"):
         row_html += '</div><br>'
 
         # 第二行显示后5个元素
-        row_html += '<div style="display: flex; justify-content: space-between; font-size: 30px;">'
+        row_html += '<div style="display: flex; justify-content: space-between; font-size: 28px;">'
         row_html += ''.join([f'<div style="margin-right: 20px;">{item}</div>' for item in random_items[5:]])
         row_html += '</div>'
 
@@ -52,15 +52,16 @@ if st.button('和弦生成', key="generate_button"):
     else:
         st.write('列表中的元素不足10个，请添加更多元素。')
 
-# 设置按钮样式和位置（右下角）
+# 设置按钮样式和位置（底部中央）
 st.markdown("""
     <style>
         .stButton > button {
             position: fixed;
             bottom: 20px;
-            right: 20px;
-            font-size: 20px;
-            padding: 15px 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            padding: 20px 50px;
         }
     </style>
 """, unsafe_allow_html=True)
